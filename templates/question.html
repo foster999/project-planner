@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Project Planning Quiz</title>
+</head>
+
+<body>
+        <div class="header">
+            <h1>Project Planning Quiz</h1>
+        </div>
+    <hr>
+    </div>
+        <div class="container">
+            <div class="question">
+                {% if question %}
+                  <h2>{{ question }}</h2>
+                {% else %}
+                  <h2>Oops, the app is broken</h2>
+                {% endif %}
+            </div>
+            <div class="choices">
+                <ul>
+                    {% for choice in choices %}
+                    <input type="radio" id="{{ choice }}" name="choice" value="{{ choice }}">
+                    <label for="{{ choice }}">{{ choice }}</label><br>
+                    {% endfor %}
+                <ul>
+            </div>
+        </div>
+    <div class="container">
+        {% if next_index is none %}
+          <a href="/results"><button id="finish_btn" type="button" style="display: none;">Finish</button></a>
+          <button id="finish_btn" onclick="/submitResults/" type="button" style="display: none";>Finish</button>
+        {% else %}
+          <a href="/question/{{ next_index }}"><button id="next_btn" type="button" style="display: none;">Next</button></a>
+        {% endif %}
+        <a href="/"><button id="restart_btn" type="button">Restart</button></a>
+    </div>
+    <div class="container">
+        <h3>Progress: {{ progress }}%
+    </div>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{{
+      url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
+      
+    <script type=text/javascript>
+        $(document).ready(function() {
+          $("input[name='choice']").click(function() {
+            if (!$("input[name='choice']:checked").val()) {
+}             $("#next_btn").show();
+              $("#finish_btn").show();
+          });
+        });
+    </script>
+</body>
+</html>

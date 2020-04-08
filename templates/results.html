@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Project Planning Quiz - Results</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Project Planning Quiz Results</h1>
+        </div>
+    <hr>
+    </div>
+    
+    <div class="container">
+        <h2>Thanks for completing the quiz</2>
+        {% for x in session %}
+        <p>{{ x }}</p>
+        {% endfor %}
+    </div>
+
+    <div class="container">
+        <a href="/"><button id="restart_btn" type="button">Restart</button></a>
+    </div>
+</body>
+</html>
