@@ -1,5 +1,7 @@
 from flask import Flask, make_response, render_template, redirect, session
 app = Flask(__name__)
+from flask_bootstrap import Bootstrap
+bootstrap = Bootstrap(app)
 
 choice_type = {
         "binary": ["Yes", "No"]

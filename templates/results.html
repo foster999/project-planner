@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+{% extends 'bootstrap/base.html' %}
 <html>
 
 <head>
@@ -6,6 +8,7 @@
     <title>Project Planning Quiz - Results</title>
 </head>
 
+{% block body %}
 <body>
     <div class="container">
         <div class="header">
@@ -13,7 +16,7 @@
         </div>
     <hr>
     </div>
-    
+
     <div class="container">
         <h2>Thanks for completing the quiz</2>
         {% for x in session %}
@@ -25,4 +28,5 @@
         <a href="/"><button id="restart_btn" type="button">Restart</button></a>
     </div>
 </body>
+{% endblock %}
 </html>

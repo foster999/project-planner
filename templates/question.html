@@ -1,3 +1,5 @@
+{% extends 'bootstrap/base.html' %}
+
 <!DOCTYPE html>
 <html>
 
@@ -6,10 +8,13 @@
     <title>Project Planning Quiz</title>
 </head>
 
+{% block body %}
 <body>
+  <div class="container">
         <div class="header">
             <h1>Project Planning Quiz</h1>
         </div>
+    </div>
     <hr>
     </div>
         <div class="container">
@@ -41,11 +46,11 @@
     <div class="container">
         <h3>Progress: {{ progress }}%
     </div>
-    
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="{{
       url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
-      
+
     <script type=text/javascript>
         $(document).ready(function() {
           $("input[name='choice']").click(function() {
@@ -56,4 +61,6 @@
         });
     </script>
 </body>
+
+{% endblock %}
 </html>
