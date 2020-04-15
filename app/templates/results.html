@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+        <h2>Thanks for completing the quiz</h2>
+        {% for question_id, choice in choices.items() %}
+        <p>Question {{ question_id }}: {{ choice }}</p>
+        {% endfor %}
+
+{% endblock %}

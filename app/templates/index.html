@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="text-container" id="intro">
+        <h2>Introduction</h2>
+        <p>This quiz is designed to recommend quality assurance techniques that are relevant to your project.</p>
+        <p>It will provide a project template, containing useful resources for these suggestions.</p>
+        <a class="button button-primary" id="start_btn" href="{{ url_for('start_quiz') }}">Start Quiz</a>
+    </div>
+    <p>{{ session_id }}</p>
+    <div class="text-container" id="continue">
+        <h2>Continuing the Quiz</h2>
+        <p>If you have previously started or completed the quiz, please use the box below to provide your unique session code.<p>
+        <p>This will allow you to continue where you left off, or see your results.
+        <form action="/continue" method="post">
+            <input type="text" id="session_code" name="session_code" required>
+            <label for="session_code">Session Code</label>
+            <input type="submit" value="Continue">
+        </form>
+    </div>
+{% endblock %}

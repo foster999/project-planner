@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        {% block head %}
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {% if title %}
+            <title>{{ title }}</title>
+        {% else %}
+            <title>Project Planning Quiz</title>
+        {% endif %}
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/skeleton.css') }}" />
+
+        {% endblock %}
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div class="header">
+                <h1>Project Planning Quiz</h1>
+
+                {% if session_id %}
+                <p>Your unique session ID is: <code>{{ session_id }}</code></p>
+                <p>Save this for later, to continue where you left off or revisit/share your results.</p>
+                {% endif %}
+
+                {% if request.path != "/" %}
+                <a class="button u-pull-right" style="margin:0;" id="restart_btn" href="{{ url_for('restart_session') }}">Restart</a>
+                {% endif %}
+            </div>
+            <hr/>
+
+            {% with messages = get_flashed_messages(with_categories = true) %}
+            {% if messages %}
+            <ul class="flashes">
+                {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+
+            {% block content %}{% endblock %}
+
+        </div>
+    </body>
+</html>

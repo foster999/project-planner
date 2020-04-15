@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+            <div class="question">
+                {% if question %}
+                  <h2>{{ question }}</h2>
+                {% else %}
+                  <h2>Oops, question could not be retrieved</h2>
+                {% endif %}
+            </div>
+
+            <div class="choices">
+                <form action="{{ url_for('store_choice') }}" method="post">
+                    <ul>
+                        {% for choice in choices %}
+                        <label for="{{ choice }}">
+                            <input type="radio" id="{{ choice }}" name="choice" value="{{ choice }}" required>
+                            <div>{{ choice }}</div>
+                        </label>
+                        <br>
+                        {% endfor %}
+
+                        <input type="hidden" id="qustion_id" name="qustion_id" value="{{ question_index }}">
+                        <input type="hidden" id="next_id" name="next_id" value="{{ next_index }}">
+
+                        {% if next_index is none %}
+                        <input class="button button-primary" type="submit" value="Finish">
+                        {% else %}
+                        <input class="button button-primary" type="submit" value="Next">
+                        {% endif %}
+                    <ul>
+                </form>
+            </div>
+            <div class="progress">
+                <hr/>
+                <h4>Progress: {{ progress }}%</h4>
+            </div>
+{% endblock %}
