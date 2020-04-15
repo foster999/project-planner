@@ -1,4 +1,4 @@
-from flask import render_template, redirect, request, session, url_for
+from flask import render_template, redirect, request, session, url_for, flash
 
 from app import app
 from app.config import questions
@@ -37,7 +37,11 @@ def continue_session():
     Continue a previous session using a session hash.
     """
     session_code = request.form.get("session_code")
-    restore_session(session_code)
+    try:
+        restore_session(session_code)
+    except:
+        flash("Sorry, no session is associated with this Session ID", "error")
+        return redirect(url_for("index"))
     return redirect(session["current_page"])
 
 

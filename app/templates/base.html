@@ -23,15 +23,18 @@
         <div class="container">
 
             <div class="header">
-                <h1>Project Planning Quiz</h1>
-
-                {% if session_id %}
-                <p>Your unique session ID is: <code>{{ session_id }}</code></p>
-                <p>Save this for later, to continue where you left off or revisit/share your results.</p>
-                {% endif %}
+                <div class="header-text">
+                    <h1>Project Planning Quiz</h1>
+                    {% if session_id %}
+                    <p>Your unique session ID is: <code>{{ session_id }}</code></p>
+                    <p>Save this for later, to continue where you left off or to revisit/share your results.</p>
+                    {% endif %}
+                </div>
 
                 {% if request.path != "/" %}
-                <a class="button u-pull-right" style="margin:0;" id="restart_btn" href="{{ url_for('restart_session') }}">Restart</a>
+                <div class="header-button">
+                    <a class="button" id="restart_btn" href="{{ url_for('restart_session') }}">Restart</a>
+                </div>
                 {% endif %}
             </div>
             <hr/>
