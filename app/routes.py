@@ -37,6 +37,8 @@ def continue_session():
     Continue a previous session using a session hash.
     """
     session_code = request.form.get("session_code")
+    if not session_code:
+        flash("Please enter a valid Session ID", "error")
     try:
         restore_session(session_code)
     except:

@@ -41,7 +41,7 @@
 }
 
 .header-text h1, .header-text p {
-  margin: 0.5rem auto;
+  margin: 1rem auto;
 }
 
 .header-button {
@@ -361,6 +361,41 @@ pre > code {
   display: block;
   padding: 1rem 1.5rem;
   white-space: pre; }
+
+
+/* Message boxes (flashes)
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.flashes {
+  margin: 1.5rem 0;
+}
+
+.flashes p {
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+.info {
+    color: #00529B;
+    background-color: #BDE5F8;
+}
+.success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+}
+.warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+}
+.error {
+    color: #D8000C;
+    background-color: #FFD2D2;
+}
+.flashes i {
+    margin: 10px 22px;
+    font-size: 2em;
+    vertical-align: middle;
+}
 
 
 /* Tables

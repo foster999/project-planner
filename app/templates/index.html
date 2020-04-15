@@ -12,10 +12,13 @@
         <h2>Continuing the Quiz</h2>
         <p>If you have previously started or completed the quiz, please use the box below to provide your unique session ID.<p>
         <p>This will allow you to continue where you left off, or see your results.
+
         <form action="/continue" method="post">
-            <input type="text" id="session_code" name="session_code" required>
             <label for="session_code">Session ID</label>
+            <input type="text" id="session_code" name="session_code" required>
+            <br/>
             <input type="submit" value="Continue">
         </form>
+
     </div>
 {% endblock %}

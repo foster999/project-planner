@@ -41,3 +41,23 @@ default_scores = {
         "peer_review": 0,
         "testing": 0,
         }
+
+
+class Question(object):
+    def __init__(
+            self,
+            question,
+            question_type,
+            choices,
+            next_question
+            ):
+        self.question = question
+        self.question_type = question_type,
+        self.choices = choices
+        self.next_question = next_question
+
+    def add_choices(self):
+        pass
+
+    def set_next_question(self, next_question):
+        pass
